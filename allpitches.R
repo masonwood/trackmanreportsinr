@@ -27,12 +27,12 @@ TrackmanFile <- read.csv("/Users/mason/Desktop/R project/TRACKMAN 2024/testing.c
 pitcher_data <- TrackmanFile %>% 
   filter(PitcherId == 1000092508)
 
-ggplot(data = pitcher_data, aes(x = PlateLocSide, y = PlateLocHeight, color = PitchCall)) +
+ggplot(data = pitcher_data, aes(x = PlateLocSide, y = PlateLocHeight, color = AutoPitchType)) +
   ylim(0,4) +
   xlim(-4,4) +
   geom_point(size = 2.5, stroke = 1) +
   geom_rect(xmin = -1.20, xmax = 1.20, ymin = 1.30, ymax = 3.1, show.legend = FALSE, fill = "transparent", color = "black") +
-  scale_color_manual(values = sample(colors(), length(unique(pitcher_data$PitchCall)))) +
+  scale_color_manual(values = pitch_colors) +
   guides(color = guide_legend(override.aes = list(shape = 19))) +
   theme_classic() +
   xlab("Plate Side (ft)") +
