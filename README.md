@@ -11,4 +11,9 @@ How to use:
 
 4.) Run the code!
 
-Note: All scripts currently use AutoPitchType 
+
+Notes: 
+
+- All scripts currently use AutoPitchType 
+
+- The strikezone may have to be adjusted due to varying Trackman calibration
