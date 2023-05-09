@@ -32,6 +32,10 @@ centriod <- pitcher_data %>%
             InducedVertBreak = mean(InducedVertBreak), .groups="drop")
 
 ggplot(data = pitcher_data, aes(x = HorzBreak, y = InducedVertBreak, color = factor(AutoPitchType))) +
+  geom_vline(xintercept = seq(-20, 20, 10), linetype = "dashed", color = "lightgray") +
+  geom_hline(yintercept = seq(-20, 20, 10), linetype = "dashed", color = "lightgray") +
+  geom_vline(xintercept = 0, linewidth = .5) +
+  geom_hline(yintercept = 0, linewidth = .5) +
   geom_point(size = 2.5, stroke = 1) +
   geom_point(data=centriod, mapping = aes(x = HorzBreak, y = InducedVertBreak, color = factor(AutoPitchType)), shape = 4, size = 3.5) +
   stat_ellipse(linetype = "solid", show.legend = FALSE) +
@@ -43,11 +47,6 @@ ggplot(data = pitcher_data, aes(x = HorzBreak, y = InducedVertBreak, color = fac
   labs(color = "Pitch Type", title = "Pitch Movement Plot") +
   ylim(-25,25) +
   xlim(-25,25) +
-  geom_vline(xintercept = seq(-20, 20, 10), linetype = "dashed", color = "lightgray") +
-  geom_hline(yintercept = seq(-20, 20, 10), linetype = "dashed", color = "lightgray") +
-  geom_vline(xintercept = 0, linewidth = .5) +
-  geom_hline(yintercept = 0, linewidth = .5) +
   scale_x_continuous(breaks = seq(-20, 20, 10), limits = c(-25, 25)) +
   scale_y_continuous(breaks = seq(-20, 20, 10), limits = c(-25, 25)) +
   theme(plot.title = element_text(hjust = 0.5))
-
