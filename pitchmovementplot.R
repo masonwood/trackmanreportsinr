@@ -20,11 +20,12 @@ pitch_colors <- c('Four-Seam' = rgb(210/255, 45/255, 73/255, alpha = .5),
                   'Eephus' = rgb(136/255, 136/255, 136/255, alpha = .5),
                   'Other' = rgb(136/255, 136/255, 136/255, alpha = .5))
 
-
+# Replace directory below
 TrackmanFile <- read.csv("/Users/mason/Desktop/R project/TRACKMAN 2024/testing.csv")
 
+# Replace PitcherId below
 pitcher_data <- TrackmanFile %>% 
-  filter(PitcherId == 10031045)
+  filter(PitcherId == 1000092508)
 
 centriod <- pitcher_data %>%
   group_by(AutoPitchType) %>%

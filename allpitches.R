@@ -29,9 +29,13 @@ pitcher_data <- TrackmanFile %>%
 
 ggplot(data = pitcher_data, aes(x = PlateLocSide, y = PlateLocHeight, color = AutoPitchType)) +
   ylim(0,4) +
-  xlim(-4,4) +
-  geom_point(size = 2.5, stroke = 1) +
+  xlim(-3,3) +
+  geom_point(size = 3.5, stroke = 1) +
   geom_rect(xmin = -1.20, xmax = 1.20, ymin = 1.30, ymax = 3.1, show.legend = FALSE, fill = "transparent", color = "black") +
+  geom_segment(aes(x = -0.4, xend = -0.4, y = 1.3, yend = 3.1), color = "lightgray", linetype = "dashed") + 
+  geom_segment(aes(x = 0.4, xend = 0.4, y = 1.3, yend = 3.1), color = "lightgray", linetype = "dashed") +
+  geom_segment(aes(x = -1.20, xend = 1.20, y = 1.9, yend = 1.9), color = "lightgray", linetype = "dashed") + 
+  geom_segment(aes(x = -1.20, xend = 1.20, y = 2.5, yend = 2.5), color = "lightgray", linetype = "dashed") +
   scale_color_manual(values = pitch_colors) +
   guides(color = guide_legend(override.aes = list(shape = 19))) +
   theme_classic() +
@@ -40,3 +44,4 @@ ggplot(data = pitcher_data, aes(x = PlateLocSide, y = PlateLocHeight, color = Au
   labs(color = "Pitch Call", title = "Pitch Location Plot") +
   theme(plot.title = element_text(hjust = 0.5)) +
   coord_fixed(ratio = 2)
+  
